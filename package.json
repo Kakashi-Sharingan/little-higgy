@@ -1,0 +1,36 @@
+{
+  "name": "little-higgy",
+  "description": "Little Higgy \u2014 personal local ComfyUI creative studio, with no API-credit dependency",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/studio"
+  ],
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "test:local": "node --test tests/local-engine.test.mjs",
+    "build:pages": "node scripts/build-pages.mjs"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "studio": "*",
+    "axios": "^1.7.0",
+    "react-hot-toast": "^2.4.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "autoprefixer": "^10.4.24",
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9",
+    "eslint-config-next": "^15.0.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "vite": "^5.4.0",
+    "@tailwindcss/vite": "^4.1.18"
+  }
+}
