@@ -1,0 +1,21 @@
+name: Package Windows edition
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/package-windows.py
+      - name: Publish source package
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_REF_TYPE}" != "tag" ]; then tag="v1.0.0"; fi
+          gh release create "$tag" dist/Little-Higgy-Windows.zip --target "$GITHUB_SHA" --title "Little Higgy — Local Edition" --notes-file RELEASE-NOTES.md
