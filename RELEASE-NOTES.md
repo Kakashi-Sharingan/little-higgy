@@ -1,9 +1,11 @@
-Little Higgy is a personal creative studio that uses local ComfyUI models without provider API credits.
+Little Higgy v1.1.0 — automated local Windows setup
 
-- Hosted studio: https://kakashi-sharingan.github.io/little-higgy/
-- Windows: download Little-Higgy-Windows.zip, extract it, install Node.js LTS, and run START-LITTLE-HIGGY.bat.
-- Image/Cinema generation needs ComfyUI plus a compatible SD 1.5 or SDXL checkpoint on your PC. Video needs an imported supported local workflow; lip-sync-specific nodes are not bundled or generally supported yet.
-- The hosted interface connects from your browser to local ComfyUI; GitHub Pages does not host GPU inference. Read the README for CORS and browser local-network settings.
-- No models or GPU runtime are included in this source package. Hardware, electricity and model licensing requirements still apply.
+Download Little-Higgy-Windows.zip and extract it. Double-click SETUP-LOCAL-REQUIREMENTS.bat once; later runs use START-LITTLE-HIGGY.bat.
 
-Verified: 9 local adapter tests, Windows/server build, Pages static build, and browser protocol-fixture checks for submission, history, favorites and downloads. Real model inference and the Windows launcher have not been tested on a Windows GPU here.
+The installer adds a private Node.js 24 LTS runtime, official ComfyUI portable, and a SHA256-verified SD 1.5 image checkpoint. It tests NVIDIA/CUDA and falls back to CPU. Existing global software and drivers are not changed. The first download is roughly 6–7 GB plus app dependencies; allow about 20 GB of free disk space.
+
+No API credits, subscriptions or provider keys are needed. Local inference uses your own hardware and electricity. This setup enables Image/Cinema; video requires a separate local workflow and lip-sync-specific nodes are not bundled. Model license details are in MODEL-LICENSES.md.
+
+Windows helper tests exercise parsing, checksums, download reuse, local port allocation and archive extraction. Full multi-gigabyte downloads and GPU inference have not been run on your PC by this chat.
+
+Hosted interface: https://kakashi-sharingan.github.io/little-higgy/

@@ -2,14 +2,26 @@
 
 Little Higgy customizes the MIT-licensed Open Higgsfield AI interface into a personal local studio. It does not need a Higgsfield, Kie, or Muapi account or API credits. It does not unlock their proprietary models.
 
-## Start on your Windows PC
+## Automatic setup on your Windows PC (recommended)
 
-1. Install the current **Node.js LTS** from https://nodejs.org/ (version 22 or newer recommended).
-2. Extract this folder somewhere writable, such as `Documents\LittleHiggy`. Do not run it inside the ZIP file.
-3. Double-click **START-LITTLE-HIGGY.bat**. On the first run it installs the locked dependencies and builds the app. No Electron binary is downloaded.
-4. When the terminal says Ready, open **http://localhost:3000/studio**. Keep the terminal open.
+1. Download and extract the latest Windows source ZIP. Open the extracted `LittleHiggy` folder; do not run it inside the ZIP viewer.
+2. Double-click **SETUP-LOCAL-REQUIREMENTS.bat**.
+3. Leave the setup window open. It installs a private Node.js 24 LTS runtime, official ComfyUI portable, and a pinned SD 1.5 image checkpoint, installs the app's locked dependencies, builds the studio, starts both services, and opens your browser.
+4. On later runs, double-click **START-LITTLE-HIGGY.bat**. Keep the ComfyUI and studio windows open while generating.
 
-You can open the interface without an AI engine or key. To generate, complete the ComfyUI setup below. `localhost` on your PC means your PC: a cloud-workspace server cannot reach a ComfyUI installation on your Windows PC through localhost.
+The first setup downloads approximately 6–7 GB plus app dependencies and needs about 20 GB free. It supports x64 Intel/AMD Windows 10/11, uses `%LOCALAPPDATA%\LittleHiggy` for runtimes/model files, and does not change global PATH, drivers, or an existing Python/Node installation. It verifies download SHA256 hashes. Windows' built-in tar extracts the ComfyUI archive; if your Windows tar cannot, setup asks for 7-Zip. No administrator privileges are requested by Little Higgy itself.
+
+An actual CUDA allocation test selects NVIDIA GPU mode when usable; otherwise setup chooses CPU. CPU rendering can be very slow. The supplied SD 1.5 checkpoint covers Image/Cinema, not video or lip sync. See `MODEL-LICENSES.md` for the model license and exact checksum. No paid service, account, or provider key is installed.
+
+If ComfyUI is already running on port 8188 with checkpoints, setup reuses it without changing its installation or models. Checkpoint compatibility remains your responsibility in that case. To force CPU mode during initial setup, run `powershell -NoProfile -ExecutionPolicy Bypass -File windows/Setup-Local.ps1 -CPU` from the extracted folder. `-NoLaunch` installs/builds without opening services.
+
+If a large download is interrupted, rerun setup to resume it. Checksum mismatches are rejected. Existing installations are not upgraded in place; a corrupt/partial engine is retained for you to rename before retrying.
+
+`localhost` means the computer running the apps. A cloud workspace cannot install these requirements onto your PC automatically; you must run the downloaded setup file on Windows once.
+
+## Manual setup (optional)
+
+Install Node.js LTS 22 or newer, run `npm ci`, `npm run build`, then `npm run start` in this folder. Run ComfyUI separately as described below. Open `http://localhost:3000/studio` on the same PC.
 
 ## Enable local image generation
 

@@ -5,6 +5,13 @@ title Little Higgy - Your Personal Creative Studio
 set NEXT_TELEMETRY_DISABLED=1
 set ELECTRON_SKIP_BINARY_DOWNLOAD=1
 set COMFYUI_URL=http://127.0.0.1:8188
+if exist "%LOCALAPPDATA%\LittleHiggy\runtime.json" (
+ powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0windows\Start-Local.ps1"
+ if errorlevel 1 pause
+ exit /b
+)
+echo Automatic local setup is available: SETUP-LOCAL-REQUIREMENTS.bat
+echo.
 echo.
 echo  LITTLE HIGGY - LOCAL EDITION
 echo  No API key. No provider credits.

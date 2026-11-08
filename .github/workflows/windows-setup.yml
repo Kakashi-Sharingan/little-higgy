@@ -1,0 +1,15 @@
+name: Test Windows local setup
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse and test setup under Windows PowerShell 5.1
+        shell: powershell
+        run: ./tests/windows-setup-tests.ps1

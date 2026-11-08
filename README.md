@@ -16,7 +16,7 @@ Browser policies can block HTTPS-to-loopback connections or CORS. If that happen
 
 ### Use the Windows edition
 
-This customized build runs through **local ComfyUI**, without Kie/Muapi/Higgsfield API keys or provider credits. Start with [LITTLE-HIGGY-WINDOWS.md](LITTLE-HIGGY-WINDOWS.md) and double-click `START-LITTLE-HIGGY.bat` on Windows. Models and ComfyUI are not included. Image generation requires a compatible SD 1.5/SDXL checkpoint; video needs a supported local workflow; lip-sync-specific nodes are not bundled or generally supported yet.
+This customized build runs through **local ComfyUI**, without Kie/Muapi/Higgsfield API keys or provider credits. Start with [LITTLE-HIGGY-WINDOWS.md](LITTLE-HIGGY-WINDOWS.md) and run `SETUP-LOCAL-REQUIREMENTS.bat` once on Windows. It installs private runtimes, ComfyUI, and an SD 1.5 checkpoint; later runs use `START-LITTLE-HIGGY.bat`. Models and ComfyUI are not included. Image generation requires a compatible SD 1.5/SDXL checkpoint; video needs a supported local workflow; lip-sync-specific nodes are not bundled or generally supported yet.
 
 The original upstream README below describes the original cloud-backed app, **not this customized build's setup or capabilities**.
 
